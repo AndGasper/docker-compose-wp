@@ -1,0 +1,49 @@
+version: '3.7'
+
+services:
+   # Database container
+   db:
+     image: mysql:5.7
+     volumes:
+       - db_data:/var/lib/mysql
+     restart: always
+     env_file:
+      - ./env/db-variables.env
+  # Custom wordpress image
+   wordpress:
+     image: frameworks/wp-cms
+     volumes:
+      # Likely limit the config volume to much smaller
+      - wp_data:/var/www/html
+     build:
+      context: ./cms
+      dockerfile: ./Dockerfile-wordpress
+     ports:
+       - "8000:80"
+     restart: always
+     env_file:
+      - ./env/db-variables.env
+      - ./env/wp-variables.env
+   # Config Service
+   config:
+    image: frameworks/wp-cms-config
+    depends_on:
+      - db
+      - wordpress
+    volumes:
+      - wp_data:/var/www/html
+    build:
+      context: ./cms
+      dockerfile: ./Dockerfile-wp-cli
+networks:
+  frontend:
+    driver: ''
+  backend: 
+    driver: ''
+# Independent of container lifecycle
+# These volumes will likely have to be moved into 
+volumes:
+    db_data: {}
+    wp_data:
+
+    

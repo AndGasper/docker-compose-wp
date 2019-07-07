@@ -1,0 +1,3 @@
+FROM wordpress:latest
+# Copy the plugin to the wordpress plugins directory
+ADD ./plugins/wp-react-plugin /var/www/html/wp-content/plugins/wp-react-plugin

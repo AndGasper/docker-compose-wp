@@ -1,0 +1,17 @@
+{
+  "name": "wp-react-plugin",
+  "version": "1.0.0",
+  "description": "Hello World Style wordpress plugin that uses react for front-end rendering.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wordpress",
+    "wp",
+    "react",
+    "cms"
+  ],
+  "author": "Andres Gasper",
+  "license": "ISC"
+}

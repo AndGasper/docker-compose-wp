@@ -1,0 +1,9 @@
+# Don't copy over the git directory
+.git
+.gitignore
+
+# Don't copy over .md files
+*.md
+
+# Don't copy over node_modules
+**node_modules
