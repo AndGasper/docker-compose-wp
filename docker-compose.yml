@@ -16,7 +16,7 @@ services:
       # Likely limit the config volume to much smaller
       - wp_data:/var/www/html
      build:
-      context: ./cms
+      context: ./cms/
       dockerfile: ./Dockerfile-wordpress
      ports:
        - "8000:80"
@@ -33,7 +33,7 @@ services:
     volumes:
       - wp_data:/var/www/html
     build:
-      context: ./cms
+      context: ./cms/
       dockerfile: ./Dockerfile-wp-cli
 networks:
   frontend:

@@ -1,2 +1,4 @@
 FROM wordpress:cli
-CMD ["wp cli version"]
+COPY ./docker-entrypoint-wp-cli.sh ./
+RUN ls ./
+ENTRYPOINT [ "./docker-entrypoint-wp-cli.sh" ]
